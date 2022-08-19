@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>proyecto sena</title>
+   <style>
+   
+		.container{
+			width:95%;
+			max-width:900px;
+			padding:32px 64px;
+			margin:20px;
+		}
+    .direccion{
+      margin-right:5px;
+      margin-top:5px;
+      padding-right:5px;
+      box-shadow:-10px 5px 10px gray;
+      height:48px;
+      width:48px;
+      border-radius:50px;
+    }
+
+		.social{
+			/*las imágenes usadas tienen width de 48px*/
+			width:48px;
+			position:fixed;
+			top:50px;
+			right:0;
+      
+		}
+    .tarjeta{
+      display:flex;
+      justify-content:center;
+    }
+		
+
+		.social{
+			
+			top:50%;
+			height:205px;
+			margin-top:-100px;
+      margin-right:10px;
+		}
+    .social1{transition: width ease 0.5s;}
+    .social1:hover{width:45px;}
+    .color{background:linear-gradient(45deg,lightgray,black,lightgray);}
+    .atras {
+        background-color:lightgray;
+    }
+    .col{padding:20px;}
+    .imagen{width:200px;
+    height:300px}
+    .ricardo{
+     font-family:cursive; 
+     font-weight:bold; 
+     margin: 20px 15px 20px 30px;
+     text-decoration:underline;
+     font-style:italic;
+    }
+    .caja{
+     
+      box-shadow:-10px 5px 10px gray;
+      top:0;
+      transition: top ease 0.5s;
+    }
+    .caja:hover{top:-50px;}
+    .botton{
+      transition: all 1s ease;
+      box-shadow: .5rem .5rem 1rem gray, -.5rem -.5rem 1rem lightgray;
+    }
+    .botton:hover{
+      box-shadow: .5rem .5rem 1rem lightgray, -.5rem -.5rem 1rem gray;
+    }
+    .botton:active{
+      box-shadow: inset .2rem .2rem 1rem lightgreen, inset -.2rem -.2rem 1rem green;
+    }
+   </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  </head>
+  <body style = "background-color:silver; overflow-x: hidden;">
+
+    <nav class="navbar navbar-expand-lg bg-light color">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">proyecto</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#bajar">Creadores</a>
+              </li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Administrar aplicacion
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{{url_for('index')}}"> jugadores</a></li>
+                  <li><a class="dropdown-item" href="{{url_for('indextorneo')}}">torneos</a></li>
+                  <li><a class="dropdown-item" href="#">patrocinadores</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="container text-center ">
+        <div class="row">
+          <div class="col tarjeta">
+            <div class="card caja" style="width: 18rem;">
+              <img src="https://curiosfera-historia.com/wp-content/uploads/evoluci%C3%B3n-del-futbol.jpg" class="card-img-top" alt="...">
+              <div class="card-body ">
+                <h5 class="card-title">JUGADORES</h5>
+                <p class="card-text">en este lugar encontrara la infomacion de los jugadores registrados, podra registrar, actulizar y eliminar</p>
+                <a href="{{url_for('index')}}" class="btn btn-dark botton">ir a JUGADORES</a>
+              </div>
+            </div>
+          </div>
+          <div class="col tarjeta"><div class="card caja" style="width: 18rem;">
+            <img src="https://golsmedia.com/wp-content/uploads/2020/03/jjoo-1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">TORNEOS</h5>
+              <p class="card-text">en este lugar encontrara la infomacion de los torneos registrados, podra registrar, actulizar y eliminar.</p>
+              <a href="{{url_for('indextorneo')}}" class="btn btn-dark botton">ir a torneos</a>
+            </div>
+          </div></div>
+          <div class="col tarjeta"><div class="card caja" style="width: 18rem;">
+            <img src="https://curiosfera-historia.com/wp-content/uploads/evoluci%C3%B3n-del-futbol.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-dark botton">Go somewhere</a>
+            </div>
+          </div></div>
+          <div class="col tarjeta"><div class="card caja" style="width: 18rem;">
+            <img src="https://golsmedia.com/wp-content/uploads/2020/03/jjoo-1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-dark botton">Go somewhere</a>
+            </div>
+          </div></div>
+          <div class="col tarjeta"><div class="card caja" style="width: 18rem;">
+            <img src="https://curiosfera-historia.com/wp-content/uploads/evoluci%C3%B3n-del-futbol.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-dark botton">Go somewhere</a>
+            </div>
+          </div></div>
+          <div class="col tarjeta"><div class="card caja" style="width: 18rem;">
+            <img src="https://golsmedia.com/wp-content/uploads/2020/03/jjoo-1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-dark botton">Go somewhere</a>
+            </div>
+          </div></div>
+          <div class="col tarjeta"><div class="card caja" style="width: 18rem;">
+            <img src="https://curiosfera-historia.com/wp-content/uploads/evoluci%C3%B3n-del-futbol.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div></div>
+          <div class="col tarjeta"><div class="card caja" style="width: 18rem;">
+            <img src="https://golsmedia.com/wp-content/uploads/2020/03/jjoo-1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div></div>
+          <div class="col tarjeta"><div class="card caja" style="width: 18rem;">
+            <img src="https://curiosfera-historia.com/wp-content/uploads/evoluci%C3%B3n-del-futbol.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div></div>
+          <br><br>
+          <legend class="ricardo" >Creadores</legend>
+          <div class="col tarjeta">
+            <div class="card caja" style="width: 18rem;" id="bajar">
+              <img src="https://i.postimg.cc/j5DsjWPw/manuel.jpg" class="card-img-top imagen" alt="manuel">
+              <div class="card-body"><h6 >MANUEL POLANCO</h6>
+                <p class="card-text">Soy manuel polanco estudiante de programación de aplicaciones 
+                  y servicios para la nube del <b>SENA</b>, quiero ser un desarrollador senior  de desarrollo de seguridad en  
+                  videojuegos y le agradezco al <b>SENA</b> por esta gran oportunidad.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col tarjeta">
+            <div class="card caja" style="width: 18rem;">
+              <img src="https://i.postimg.cc/9FL1VrXH/Whats-App-Image-2022-08-08-at-12-05-40-PM.jpg" class="card-img-top imagen" alt="...">
+              <div class="card-body"><h6>RICARDO ANDRES TORO</h6>
+                <p class="card-text">Soy Ricardo Andres Toro, estudiante de programación en el <b>SENA</b>, 
+                  quiero convertirme en un senior del desarrollo de aplicaciones. 
+                  Estoy contento con la experiencia del <b>SENA</b> como aprendiz.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col tarjeta">
+            <div class="card caja" style="width: 18rem;">
+              <img src="https://i.postimg.cc/8cs1XZT0/IMG-20191021-170205.jpg" class="card-img-top image" alt="...">
+              <div class="card-body"><h6>ANDRES FELIPE MUÑOZ</h6>
+                <p class="card-text">Soy andres felipe muñoz, estudiante de programacion, mi meta es convertirme en cientifico de datos y seguir escalando dia a dia como programador, gracias <b>SENA</b> por esta maravillosa oportunidad.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="position-relative">
+      <div class="social">
+        <a  href="https://www.facebook.com/SENA" target="blank"><img src="https://i.postimg.cc/Y2NDq3nP/social-facebook-fb-35.png" alt="facebook" class="direccion social1"></a>
+        <a href="https://www.youtube.com/c/SENATVColombia" target="blank"><img src="https://i.postimg.cc/q7MQqVFD/social-youtube-23.png" alt="youtube" class="direccion social1"></a>
+        <a href="https://www.instagram.com/senacomunica/?hl=es" target="blank"><img src="https://i.postimg.cc/sDmVS5X6/social-instagram-3.png" alt="instagram" class="direccion social1"></a>
+        <a href="https://co.linkedin.com/school/servicio-nacional-de-aprendizaje-sena-/" target="blank"><img src="https://i.postimg.cc/44zcD2LY/sociallinkedin-member-70.png" alt="linkedin" class="direccion social1"></a>
+      </div></div>
+      
+      
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  </body>
+</html>
+ 
+    

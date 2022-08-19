@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+   <style>
+    .caja{
+     
+      box-shadow:-10px 5px 10px gray;
+      
+    }
+    .abs
+    {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:100vh;
+    }
+    form{width:450px;
+      box-shadow:-10px 5px 10px gray;}
+    .col{
+        background-image:url("https://curiosfera-historia.com/wp-content/uploads/evoluci%C3%B3n-del-futbol.jpg");
+    
+    }   
+    .color{background:linear-gradient(45deg,lightgray,black,lightgray);}
+   </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  </head>
+  <body style="background-image:url('https://i.postimg.cc/02nngdzt/depor.jpg');">
+
+    <nav class="navbar navbar-expand-lg bg-light color">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">proyecto</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('index')}}">Regresar</a>
+              </li>
+              
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+{% for empleado in empleados %}
+        
+{% with  messages= get_flashed_messages()  %}
+      
+{% if messages  %}
+    <div class="alert alert-danger" role="alert">
+    {% for message in messages %}
+            {{message}}
+    {% endfor %}
+    </div>
+
+{% endif %}
+
+{% endwith %}
+<div class="container">
+  <div class="abs">
+        <form method="post" action="/update" enctype="multipart/form-data">
+            <div class="card">
+                <div class="card-header">
+                    Editar Jugador
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Datos del Jugador</h5>
+                    <p class="card-text">
+                        <div class="form-group">
+                            <label for="txtnombre">Nombre:</label>
+                            <input id="txtnombre" value="{{empleado[1]}}" class="form-control" type="text" name="txtnombre"  required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="txtcedula">Cedula: </label>
+                            <input id="txtcedula" value="{{empleado[2]}}" class="form-control" type="number" name="txtcedula"  required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="txtedad">Edad: </label>
+                            <input id="txtedad" value="{{empleado[3]}}" class="form-control" type="number" name="txtedad"  required>
+                        </div>
+
+                    <input type="hidden" value="{{empleado[0]}}" name="txtid" id="txtid">
+                    <br>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Actualizar">  
+                    </div>
+            
+
+
+                    </p>
+                </div>
+            </div>
+            
+            
+            
+            
+            </form></div></div>
+{% endfor %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>
