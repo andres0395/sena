@@ -215,7 +215,6 @@ def storagetorneo():
         flash('la fecha de finalizacion debe ser posterior a la fecha de inicio')
         return redirect(url_for('createtorneo'))
     
-    
     sql = "INSERT INTO `torneos` (`nom_torneo`, `lugar`, `esenario_depor`, `nom_organizador`,`tel_organizador`,`fecha_ini`,`fecha_fin`,`deporte`,`id`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, NULL);"
     datostor = (_nom_torneo,_lugar,_esenario_depor,_nom_organizador,_tel_organizador,_fecha_ini,_fecha_fin,_deporte)
     conn = mysql.connect()
