@@ -36,7 +36,7 @@
                 <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">inicio</a>
               </li>       
               <li class="nav-item">
-                <a class="nav-link" href="{{url_for('indextorneo')}}">Regresar</a>
+                <a class="nav-link" href="{{url_for('indexequipo')}}">Regresar</a>
               </li>
               
               
@@ -44,7 +44,7 @@
           </div>
         </div>
       </nav>
-{% for torneo in torneos %}
+{% for equipo in equipos %}
         
 {% with  messages= get_flashed_messages()  %}
       
@@ -61,23 +61,22 @@
         
 <div class="container">
   <div class="abs">
-        <form method="post" action="/updatetorneo" enctype="multipart/form-data">
+        <form method="post" action="/updateequipo" enctype="multipart/form-data">
             <div class="card">
                 <div class="card-header">
-                    Editar Torneo
+                    Editar equipo
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Datos del Torneo</h5>
+                    <h5 class="card-title">Datos del Equipo</h5>
                     <p class="card-text">
                         <div class="form-group">
-                            <label for="txtnom_torneo">Nombre del Torneo:</label>
-                            <input id="txtnom_torneo" value="{{torneo[0]}}" class="form-control" type="text" name="txtnom_torneo"  required autofocus>
+                            <label for="txtnom_equipo">Nombre del Equipo:</label>
+                            <input id="txtnom_equipo" value="{{equipo[1]}}" class="form-control" type="text" name="txtnom_equipo"  required autofocus>
                         </div>
                         
                         <div class="form-group">
-                            <label for="txtlugar">lugar: </label>
-                            <!--<input id="txtlugar" value="{{torneo[1]}}" class="form-control" type="text" name="txtlugar"  required>-->
-                            <select class="form-control" id="txtlugar" type="text" name="txtlugar">
+                            <label for="txtciudad_equipo">ciudad: </label>
+                            <select class="form-control" id="txtciudad_equipo" type="text" name="txtciudad_equipo">
                               
                               <option value="Arauca">Arauca</option>
                               <option value="Armenia">Armenia</option>
@@ -115,36 +114,23 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="txtesenario_depor">esenario deportivo: </label>
-                            <input id="txtesenario_depor" value="{{torneo[2]}}" class="form-control" type="text" name="txtesenario_depor"  required>
+                            <label for="txtdeporte_equipo">Deporte: </label>
+                            <input id="txtdeporte_equipo" value="{{equipo[3]}}" class="form-control" type="text" name="txtdeporte_equipo"  required>
                         </div>
 
                         <div class="form-group">
-                          <label for="txtnom_organizador">nombre del organizador: </label>
-                          <input id="txtnom_organizador" value="{{torneo[3]}}" class="form-control" type="text" name="txtnom_organizador"  required>
+                          <label for="txtnom_presidente">nombre del presidente: </label>
+                          <input id="txtnnom_presidente" value="{{equipo[4]}}" class="form-control" type="text" name="txtnom_presidente"  required>
                       </div>
 
                       <div class="form-group">
-                        <label for="txttel_organizador">telefono del organizador: </label>
-                        <input id="txttel_organizador" value="{{torneo[4]}}" class="form-control" type="number" name="txttel_organizador"  required>
+                        <label for="txttel_presidente">telefono del presidente: </label>
+                        <input id="txttel_presidente" value="{{equipo[5]}}" class="form-control" type="number" name="txttel_presidente"  required>
                     </div>
 
-                    <div class="form-group">
-                      <label for="txtfecha_ini">fecha inicial: </label>
-                      <input id="txtfecha_ini" value="{{torneo[5]}}" class="form-control" type="date" name="txtfecha_ini"  required>
-                  </div>
+                    
 
-                  <div class="form-group">
-                    <label for="txtfecha_fin">fecha final: </label>
-                    <input id="txtfecha_fin" value="{{torneo[6]}}" class="form-control" type="date" name="txtfecha_fin"  required>
-                </div>
-
-                <div class="form-group">
-                  <label for="txtdeporte">esenario deportivo: </label>
-                  <input id="txtdeporte" value="{{torneo[7]}}" class="form-control" type="text" name="txtdeporte"  required>
-              </div>
-
-                    <input type="hidden" value="{{torneo[8]}}" name="txtid" id="txtid">
+                    <input type="hidden" value="{{equipo[0]}}" name="txtid" id="txtid">
                     <br>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Actualizar">  

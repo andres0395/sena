@@ -38,7 +38,7 @@
                 <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{url_for('indextorneo')}}">Regresar</a>
+                <a class="nav-link" href="{{url_for('indexequipo')}}">Regresar</a>
               </li>
               
               
@@ -60,23 +60,23 @@
       {% endwith %}
 <div class="container">
 <div class="abs">
-<form method="post" action="/storetorneo" enctype="multipart/form-data">
+<form method="post" action="/storeequipo" enctype="multipart/form-data">
  
     <div class="card">
         <div class="card-header">
-            Ingresar Torneo
+            Ingresar Equipos
         </div>
         <div class="card-body">
-            <h5 class="card-title">Datos del Torneo</h5>
+            <h5 class="card-title">Datos del Equipo</h5>
             <p class="card-text">
                 <div class="form-group">
-                    <label for="txtnom_torneo"> Nombre del torneo:</label>
-                    <input id="txtnom_torneo" class="form-control" type="text" name="txtnom_torneo" required autofocus>
+                    <label for="txtnom_equipo"> Nombre del Equipo:</label>
+                    <input id="txtnom_equipo" class="form-control" type="text" name="txtnom_equipo" required autofocus>
                 </div>
                 <div class="form-group">
-                    <label for="txtlugar"> lugar:</label>
+                    <label for="txtciudad_equipo"> ciudad:</label>
                     <!--<input id="txtlugar" class="form-control" type="text" name="txtlugar" required>-->
-                    <select class="form-control" id="txtlugar" type="text" name="txtlugar">
+                    <select class="form-control" id="txtciudad_equipo" type="text" name="txtciudad_equipo">
                     
                       <option value="Arauca">Arauca</option>
                       <option value="Armenia">Armenia</option>
@@ -113,30 +113,20 @@
                   </select>
                 </div>
                 <div class="form-group">
-                    <label for="txtesenario_depor"> escenario deportivo:</label>
-                    <input id="txtesenario_depor" class="form-control" type="text" name="txtesenario_depor" required>
+                    <label for="txtdeporte_equipo"> Deporte:</label>
+                    <input id="txtdeporte_equipo" class="form-control" type="text" name="txtdeporte_equipo" required>
                     
                 </div>
                 <div class="form-group">
-                  <label for="txtnom_organizador"> nombre del organizador:</label>
-                  <input id="txtnom_organizador" class="form-control" type="text" name="txtnom_organizador" required>
+                  <label for="txtnom_presidente"> nombre del presidente:</label>
+                  <input id="txtnom_presidente" class="form-control" type="text" name="txtnom_presidente" required>
               </div>
               <div class="form-group">
-                <label for="txttel_organizador"> telefono del organizador:</label>
-                <input id="txttel_organizador" class="form-control" type="number" name="txttel_organizador" required>
+                <label for="txttel_presidente"> telefono del presidente:</label>
+                <input id="txttel_presidente" class="form-control" type="number" name="txttel_presidente" required>
             </div>
-            <div class="form-group">
-              <label for="txtfecha_ini"> fecha de inicio:</label>
-              <input id="txtfecha_ini" class="form-control" type="date" name="txtfecha_ini" required>
-          </div>
-          <div class="form-group">
-            <label for="txtfecha_fin"> fecha de fin:</label>
-            <input id="txtfecha_fin" class="form-control" type="date" name="txtfecha_fin" required>
-        </div>
-        <div class="form-group">
-          <label for="txtdeporte"> deporte:</label>
-          <input id="txtdeporte" class="form-control" type="text" name="txtdeporte" required>
-      </div><br>
+            
+        <br>
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Agregar">
                 </div>

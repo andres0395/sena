@@ -223,6 +223,97 @@ def storagetorneo():
     conn.commit()
     return redirect('/indextorneo.html')
 
+#-----------------------equipos backend--------------------------------------------------------
+
+@app.route('/indexequipo.html')
+def indexequipo():
+    sql = "SELECT * FROM  `equipos`;"
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute(sql)
+    equipos = cursor.fetchall()
+    
+    conn.commit()
+    
+    return render_template('equipos/indexequipo.html', equipos=equipos)
+
+@app.route('/destroyequipo/<int:id>')
+def destroyequipo(id):
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    
+    cursor.execute("DELETE FROM equipos WHERE id=%s",(id))
+    conn.commit()
+    return redirect('/indexequipo.html')
+
+@app.route('/editequipo/<int:id>')
+def editequipo(id):
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM equipos WHERE id=%s",(id))
+    equipos = cursor.fetchall()
+    conn.commit()
+    return render_template('equipos/editequipo.html',equipos=equipos)
+
+@app.route('/updateequipo', methods=['POST'])
+def updateequipo():
+    _nom_equipo=request.form['txtnom_equipo']
+    _ciudad_equipo=request.form['txtciudad_equipo']
+    _deporte_equipo=request.form['txtdeporte_equipo']
+    _nom_presidente=request.form['txtnom_presidente']
+    _tel_presidente=request.form['txttel_presidente']
+    
+    id=request.form['txtid']
+    
+    
+    if not _tel_presidente.isdigit():
+        flash('debes ingresar solo numeros en la cedula y la edad')
+        return redirect(url_for('indexequipo'))
+    
+    if _nom_equipo.isdigit() or _deporte_equipo.isdigit()  or _nom_presidente.isdigit():
+        flash('debes ingresar solo letras en todos los campos exepto en telefono')
+        return redirect(url_for('indexequipo'))
+    
+    sql = "UPDATE equipos SET nom_equipo=%s, ciudad_equipo=%s, deporte_equipo=%s, nom_presidente=%s, tel_presidente=%s WHERE id=%s ;"
+    datosequi = (_nom_equipo,_ciudad_equipo,_deporte_equipo,_nom_presidente,_tel_presidente,id)
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute(sql,datosequi)
+    conn.commit()
+    return redirect('/indexequipo.html')
+
+@app.route('/createequipo')
+def createequipo():
+    return render_template('equipos/createequipo.html')
+
+@app.route('/storeequipo', methods=['POST'])
+def storageequipo():
+    _nom_equipo=request.form['txtnom_equipo']
+    _ciudad_equipo=request.form['txtciudad_equipo']
+    _deporte_equipo=request.form['txtdeporte_equipo']
+    _nom_presidente=request.form['txtnom_presidente']
+    _tel_presidente=request.form['txttel_presidente']
+    
+    
+    
+    
+    if not _tel_presidente.isdigit():
+        flash('debes ingresar solo numeros en la cedula y la edad')
+        return redirect(url_for('createequipo'))
+    
+    if _nom_equipo.isdigit() or _deporte_equipo.isdigit()  or _nom_presidente.isdigit():
+        flash('debes ingresar solo letras en todos los campos exepto en telefono')
+        return redirect(url_for('createequipo'))
+    
+    sql = "INSERT INTO `equipos` (`nom_equipo`, `ciudad_equipo`, `deporte_equipo`, `nom_presidente`, `tel_presidente`, `id`) VALUES (%s, %s, %s, %s, %s, NULL);"
+    datose = (_nom_equipo,_ciudad_equipo,_deporte_equipo,_nom_presidente,_tel_presidente)
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute(sql,datose)
+    conn.commit()
+    return redirect('/indexequipo.html')
+
+   
 
 if __name__ == '__main__':
     app.run(debug=True)

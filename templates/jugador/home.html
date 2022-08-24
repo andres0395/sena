@@ -103,7 +103,7 @@
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="{{url_for('index')}}"> jugadores</a></li>
                   <li><a class="dropdown-item" href="{{url_for('indextorneo')}}">torneos</a></li>
-                  <li><a class="dropdown-item" href="#">patrocinadores</a></li>
+                  <li><a class="dropdown-item" href="{{url_for('indexequipo')}}">equipos</a></li>
                 </ul>
               </li>
             </ul>
@@ -133,9 +133,9 @@
           <div class="col tarjeta"><div class="card caja" style="width: 18rem;">
             <img src="https://curiosfera-historia.com/wp-content/uploads/evoluci%C3%B3n-del-futbol.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-dark botton">Go somewhere</a>
+              <h5 class="card-title">EQUIPOS</h5>
+              <p class="card-text">en este lugar encontrara la infomacion de los equipos registrados, podra registrar, actulizar y eliminar.</p>
+              <a href="{{url_for('indexequipo')}}" class="btn btn-dark botton">ir a equipos</a>
             </div>
           </div></div>
           <div class="col tarjeta"><div class="card caja" style="width: 18rem;">
