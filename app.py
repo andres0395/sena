@@ -313,7 +313,17 @@ def storageequipo():
     conn.commit()
     return redirect('/indexequipo.html')
 
-   
+@app.route('/sena')
+def sena():
+    return render_template('patrocinadores/sena.html')
+
+@app.route('/reloj')
+def reloj():
+    return render_template('patrocinadores/reloj.html')
+
+@app.route('/matrix')
+def matrix():
+    return render_template('patrocinadores/matrix.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

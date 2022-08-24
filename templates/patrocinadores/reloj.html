@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  <title>Digital Clock</title>
+  <style>
+      
+      /*               CODE WRITTEN BY               
+                    YIPMONG                 */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+body{
+  background-color: lightskyblue;
+}
+#container{
+  width: 400px;
+  height:500px;
+  color:red;
+  background-color: royalblue;
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#box , #screenx{
+  background-color: palevioletred;
+  display:flex;
+  margin: auto;
+  width: 300px;
+  height: 100px;
+  border: 3px solid darkred;
+  background-color: skyblue;
+  margin-top:50px;
+  text-align: center;
+  user-select: none;
+  border-radius: 5px;
+  color: #000;
+  font-weight: bold;
+  justify-content: center;
+  align-items:center;
+  font-size: 30px;
+  display: absolute;
+  font-family: orbitron, 'sans-serif';
+  letter-spacing: 7px;
+  /*box-shadow: 30px 30px 30px #000;*/
+}
+#day{
+  width: 150px;
+  height: 50px;
+  background-color: skyblue;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 18px;
+  color:purple;
+  font-weight: bold;
+  font-family:'Times New Roman', Times, serif;
+  border: 2px solid sandybrown;
+  /*box-shadow: 30px 30px 30px #000;*/
+}
+#year{
+
+}
+/**{
+  background-color: rosybrown;
+}*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+#lastchild{
+  position: relative;
+  bottom: 220px;
+  width: 100px;
+  height: 40px;
+  background-color:skyblue;
+  margin: 30px auto;
+  border:5px solid cornflowerblue;
+  border-radius: 5px;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24pt;
+  /*box-shadow: 20px 20px 20px #000;*/
+  
+}
+#am{
+  width: 150px;
+  height: 20px;
+  background-color: lightpink;
+  
+}
+button{
+       width:100px;
+       height: 40px;
+       background-color: lightseagreen;
+}
+input[type="checkbox"]{
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    background: #8e8e8e;
+    -webkit-appearance: none;
+    border-radius: 15px;
+    outline: none;
+    transition: .3s;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.532);
+    cursor: pointer;
+    bottom: 200px;
+}
+input:checked[type="checkbox"]{
+     background: #1259a5;
+
+}
+input[type="checkbox"]::before{
+    position: absolute;
+    content: "";
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50% ;
+    transform: scale(1.1);
+    box-shadow: 0 2px rgba(0, 0, 0, 0.532);
+    transition: 0.3s;
+}
+input:checked[type="checkbox"]::before{
+    left: 30px; 
+}
+.night-mode{
+  background-color: black;
+  color: floralwhite;
+  
+  
+}
+.drops {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drop {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: transparent;
+  border-radius: 57% 43% 37% 63% / 51% 53% 47% 49%;
+  box-shadow: inset 10px 10px 10px rgba(0, 0, 0, 0.5),
+    15px 25px 10px rgba(0, 0, 0, 0.1),
+    15px 20px 2px rgba(0, 0, 0, 0.05),
+    inset -10px -10px 15px rgba(255, 255, 255, 0.9);
+}
+
+.drop::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 35px;
+  background: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 25% 75% 37% 63% / 40% 43% 57% 60%;
+}
+
+.drop::after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 65px;
+  background: #fff;
+  width: 10px;
+  height: 10px;
+  border-radius: 57% 43% 37% 63% / 48% 37% 63% 52%;
+}
+
+.drop:nth-child(2) {
+  transform: scale(0.5) translate(-200px, 180px);
+  border-radius: 64% 36% 42% 58% / 42% 37% 63% 58%;
+}
+
+.drop:nth-child(3) {
+  transform: scale(0.5) translate(280px, 10px);
+  border-radius: 49% 51% 42% 58% / 56% 47% 53% 44%;
+}
+
+.drop:nth-child(4) {
+  transform: scale(0.53) translate(120px, -350px);
+  border-radius: 39% 61% 63% 37% / 77% 47% 53% 23%;
+}
+#screenx{
+  content: "";
+  position: absolute;
+  background: transparent ;
+  box-shadow: inset 10px 10px 10px rgba(0, 0, 0, 0.5),
+              15px 25px 10px rgba(0, 0, 0, 0.1),
+              15px 20px 2px rgba(0, 0, 0, 0.05),
+              inset -10px -10px 15px rgba(255, 255, 255, 0.9);
+  
+}
+#screenx::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 35px;
+  background: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 25% 75% 37% 63% / 40% 43% 57% 60%;
+}
+
+#screenx::after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 65px;
+  background: #fff;
+  width: 10px;
+  height: 10px;
+  border-radius: 57% 43% 37% 63% / 48% 37% 63% 52%;
+}
+
+      
+  </style>
+</head>
+<body id="thm">
+  <div id="container">
+    
+    <div id="box" class="ogh">
+      <div id="screenx"></div>
+    </div>
+    <div id="day" class="ogh"></div>
+  <input type="checkbox" id="colorbtn">
+  </div>
+  <div id="lastchild"></div>
+          <div class="drops">
+            <div class="drop"></div>
+            <div class="drop"></div>
+            <div class="drop"></div>
+            <div class="drop"></div>
+          </div>
+  </div>
+   <script>
+    alert("podras ver la hora en esta pagina")
+    
+     
+ 
+ 
+ function clock() {
+  var x = document.getElementById("screenx")
+  var t = new Date();
+  var fy = t.getFullYear();
+  var h = t.getHours();
+  var m = t.getMinutes();
+  var s = t.getSeconds();
+  var mth = t.getMonth();
+  var dte = t.getDate();
+  var wkd = t.getDay();
+  var btnC = document.getElementById('colorbtn')
+  var disp = document.getElementById('lastchild');
+  var container = document.getElementById('container');
+  const body = document.getElementById('thm');
+  var colr = ['red', 'green', 'yellow', 'white', 'blue', 'orange','cyan'];
+  var clrr = ['pink', 'yellow', 'purple','blue', 'brown','grey','magenta']
+ // body.style.backgroundColor ='';
+  btnC.addEventListener('click', changeBG)
+  function changeBG(){
+    var colorIndex = parseInt(Math.random()* colr.length)
+    body.style.backgroundColor = colr[colorIndex];
+    container.style.backgroundColor = clrr[colorIndex]
+  }
+   
+   var session = "AM";
+   
+   if (h == 0) {
+     h = 12;
+   }
+   
+   if (h > 12) {
+     h = h - 12;
+     session = "PM";
+   }
+   
+   h = (h < 10) ? "0" + h : h;
+   m = (m < 10) ? "0" + m : m;
+   s = (s < 10) ? "0" + s : s;
+   
+   
+   x.innerHTML = h + ':' + m + ':' + s;
+   disp.innerHTML = session;
+   
+   
+  switch (wkd) {
+    case 0:
+      if (wkd == 0) {
+        wkd = "DOMINGO"
+      }
+      break;
+    case 1:
+      if (wkd == 1) {
+        wkd = "LUNES"
+      }
+      break;
+    case 2:
+      if (wkd == 2) {
+        wkd = "MARTES"
+      }
+      break;
+    case 3:
+      if (wkd == 3){
+        wkd = "MIERCOLES"
+      }
+      break;
+    case 4:
+      if (wkd == 4){
+        wkd = "JUEVES"
+      }
+      break;
+    case 5:
+      if (wkd == 5){
+        wkd = "VIERNES"
+      }
+      break;
+    case 6:
+      if (wkd == 6){
+        wkd = "SABADO"
+      }
+      break;
+    default:
+    wkd = "EL DIA NO EXISTE"
+  }
+  var y = document.getElementById('day');
+  y.innerHTML = mth;
+  switch (mth){
+    case 0:
+      if (mth == 0){
+       y.innerHTML = "ENERO" + ' ' + dte + '<br>' + wkd;
+      }
+      break;
+    case 1:
+      if (mth == 1){
+       y.innerHTML = "FEBRERO"
+      }
+      break;
+    case 2:
+      if (mth == 2){
+        y.innerHTML = "MARZO"
+      }
+    case 3:
+      if(mth == 3){
+        y.innerHTML = "ABRIL"
+      }
+      break;
+    case 4:
+      if ( mth == 4){
+        y.innerHTML = "MAYO" + " " + dte + "<br>" + wkd;
+      }
+      break;
+    case 5:
+      if (mth == 5){
+        y.innerHTML = "JUNIO" + ' ' + dte + '<br>' + wkd;
+      }
+      break;
+    case 6:
+      if (mth == 6){
+        y.innerHTML = "JULIO" + ' ' + dte + '<br>' + wkd;
+      }
+      break;
+    case 7:
+      if (mth == 7){
+        y.innerHTML = "AGOSTO"
+      }
+      break;
+    case 8:
+      if (mth == 8){
+        y.innerHTML = "SEPTIEMBRE";
+      }
+      break;
+    case 9:
+      if (mth == 9){
+        y.innerHTML = "OCTUBRE";
+      }
+      break;
+    case 10:
+      if (mth == 10){
+        y.innerHTML = "NOVIEMBRE";
+      }
+      break;
+    case 11:
+      if (mth == 11){
+        y.innerHTML = "DICIEMBRE";
+      }
+    default:
+    y.innerHTML = "MES NO EXISTE";
+  };
+};
+  setInterval(clock,1000)
+  
+
+  </script>
+</body>
+
+</html>
